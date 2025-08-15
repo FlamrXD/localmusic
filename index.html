@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>MP3 Folder Player</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>MP3 Folder Player</h1>
+
+    <button id="selectFolderBtn">Select MP3 Folder</button>
+    <input type="file" id="folderInput" webkitdirectory multiple accept=".mp3">
+
+    <ul id="playlist"></ul>
+    <audio id="audioPlayer" controls></audio>
+
+    <script src="js/script.js">
+    </script>
+    <script>
+        const folderInput = document.getElementById('folderInput');
+        const customBtn = document.querySelector('.custom-file-btn');
+
+        folderInput.addEventListener('change', () => {
+            if (folderInput.files.length > 0) {
+                customBtn.textContent = folderInput.files.length + " file(s) selected";
+            } else {
+                customBtn.textContent = "Choose Files";
+            }
+        });
+    </script>
+</body>
+
+</html>
